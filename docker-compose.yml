@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./
+    tty: true
+    ports:
+      - "8211:8211/udp"
+    volumes:
+      - data:/home/docker/PalServer
+    environment:
+      - MULTITHREAD=true
+      - PLAYERS=32
+
+volumes:
+  data:
