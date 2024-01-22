@@ -9,6 +9,15 @@ fi
 if [ -n "$PLAYERS" ]; then
     args+=("players="${PLAYERS})
 fi
+if [ "$PUBLIC_SERVER" = true ]; then
+    args+=("EpicApp=PalServer")
+fi
+if [ -n "$PUBLIC_IP" ]; then
+    args+=("-publicip="${PUBLIC_IP})
+fi
+if [ -n "$PUBLIC_PORT" ]; then
+    args+=("-publicport="${PUBLIC_PORT})
+fi
 
 echo "Start command args:" ${args[@]}
 

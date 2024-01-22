@@ -36,9 +36,9 @@ ENV LANGUAGE 'en_US:en'
 RUN ln -s /usr/games/steamcmd /usr/bin/steamcmd
 
 # Copy entrypoint.sh
-COPY entrypoint.sh $HOME
-RUN chmod +x $HOME/entrypoint.sh
-RUN chown docker:docker $HOME/entrypoint.sh
+COPY ./entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+RUN chown docker:docker /entrypoint.sh
 
 # Change to container user
 USER ${UID}:${GID}
@@ -55,4 +55,4 @@ RUN mkdir -p $HOME/.steam \
 
 
 ######## PAL SERVER ########
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
